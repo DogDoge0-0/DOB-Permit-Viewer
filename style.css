@@ -94,7 +94,9 @@ html {
 }
 
 #searchResultCount {
-  margin-left: 10px;
+  position: relative;
+  top: -3px;
+  left: 10px;
 }
 
 @keyframes gearTurnNav {
