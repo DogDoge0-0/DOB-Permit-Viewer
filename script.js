@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         filterQuery = filterQuery.slice(0, -4); // Remove the trailing " OR " from the last filter
-        url = `${baseURL}/resource/${dataID}.json?$where=${filterQuery}${sortParam}&$limit=${20};
+        url = `${baseURL}/resource/${dataID}.json?$where=${filterQuery}${sortParam}&$limit=${20}`;
       }
       console.log(filterQuery);
       console.log(url);
