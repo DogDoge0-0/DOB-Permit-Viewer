@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
               totalResults = data.length;
               console.log(totalResults);
-            searchResultCount.innerHTML = totalResults + ' results found.';
+            	searchResultCount.innerHTML = totalResults + ' results found.';
             })
         });
     }
