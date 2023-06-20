@@ -93,6 +93,10 @@ html {
   height: 100%;
 }
 
+#searchResultCount {
+  margin-left: 10px;
+}
+
 @keyframes gearTurnNav {
   0% {
     transform: rotate(0deg);
