@@ -923,7 +923,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   // BBL to Address conversion 
   function fetchAddress(block, borough, lot) {
-    const url = `https://geoservice.planning.nyc.gov/geoservice/geoservice.svc/Function_BBL?Borough=${borough}&Block=${block}&Lot=${lot}&key=ABDHG7KaPdSgVkYp`;
+    const url = `https://geoservice.planning.nyc.gov/geoservice/geoservice.svc/Function_BBL?Borough=${borough}&Block=${block}&Lot=${lot}&key=no_look_is_mine`;
 
     fetch(url)
       .then(response => response.json())
@@ -953,7 +953,7 @@ document.addEventListener('DOMContentLoaded', () => {
     script.onload = function() {
       gapi.load('client:auth2:picker', function() {
         gapi.client.init({
-          'apiKey': 'AIzaSyBZKkRuyrSv2iLXRmY_L5lfBiGPPcLwXxQ',
+          'apiKey': 'No looky for you!',
           'clientId': 'YOUR_CLIENT_ID',
           'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
           'scope': 'https://www.googleapis.com/auth/spreadsheets',
