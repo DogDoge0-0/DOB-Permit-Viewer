@@ -14,7 +14,8 @@ let currentSortOrder = 'ascending';
 let sortButtons = document.querySelectorAll('.sort');
 let sortButtonsState = [];
 let displayNoResult = false;
-let addressDisplay = document.querySelector('#address')
+let addressDisplay = document.querySelector('#address');
+let searchResultCount = document.qquerySelector('#searchResultCount');
 // Define the filter options and their corresponding columns
 const filterColumns = {
   'ABA': ['applicant_business_address'],
@@ -212,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function loadData() {
+    searchResultCount.innerHTML = '';
     table.innerHTML = '';
     if (searching == false) {
       loading = true;
@@ -341,6 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
               totalResults = data.length;
               console.log(totalResults);
+            searchResultCount.innerHTML = totalResults + ' results found.';
             })
         });
     }
