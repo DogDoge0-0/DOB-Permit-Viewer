@@ -1,4 +1,4 @@
-# DOB-Permit-Viewer
+# DOB Permit Viewer
 
 ## This is a site for viewing permits!
 
