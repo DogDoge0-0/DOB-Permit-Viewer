@@ -15,7 +15,7 @@ let sortButtons = document.querySelectorAll('.sort');
 let sortButtonsState = [];
 let displayNoResult = false;
 let addressDisplay = document.querySelector('#address');
-let searchResultCount = document.qquerySelector('#searchResultCount');
+let searchResultCount = document.querySelector('#searchResultCount');
 // Define the filter options and their corresponding columns
 const filterColumns = {
   'ABA': ['applicant_business_address'],
