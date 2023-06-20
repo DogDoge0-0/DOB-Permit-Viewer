@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DOB Permit Viewer</title>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <!-- Bootstrap Import -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Axios Import -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div class="loadingDivContainer d-flex justify-content-center">
+    <div class="loadingDiv d-flex align-items-center justify-content-center">
+      <img class="gearLoading" src="gear.svg" role="img" alt="Loading...">
+    </div>
+  </div>
+  <nav class="navbar bg-body-tertiary fixed-top">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-center align-items-center">
+        <a class="navbar-brand nameNavbar" href="../">DOB Permit Viewer</a>
+        <form class="d-flex mt-3 searchBar d-none d-md-block" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+        </form>
+      </div>
+      <button class="navbarToggle d-flex align-items-center" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <img class="gear" src="gear.svg" role="button" alt="options">
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Options</h5>
+          <i class="bi bi-x-lg" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <p>Change display theme to:</p>
+              <button class="btn btn-secondary" id="darkModeSet">Dark Mode</button>
+            </li>
+            <br>
+            <li class="nav-item">
+              <p>Change date display type to:</p>
+              <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#confirmReload"
+                id="dateDisplaySet">Day/Month/Year</button>
+            </li>
+            <br><br>
+            <li class="nav-item dropdown">
+              <button class="dropdown-toggle searchSet btn btn-secondary" data-bs-toggle="dropdown"
+                aria-expanded="false" data-bs-auto-close="false">
+                Set Search Filters:
+              </button>
+              <span class="mainSwitch d-flex">
+                <h4 class="ml-3 mb-0">All:</h4>&nbsp;
+                <div class="switchBig ml-2">
+                  <input type="checkbox" id="ALL" />
+                  <label for="ALL"></label>
+                </div>
+              </span>
+              <ul class="dropdown-menu">
+                <li class="dropdown-item">
+                  Applicant Business Address:
+                  <div class="switch">
+                    <input type="checkbox" id="ABA" class="notAll" />
+                    <label for="ABA"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Applicant Business Name:
+                  <div class="switch">
+                    <input type="checkbox" id="ABN" class="notAll" />
+                    <label for="ABN"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Applicant Name:
+                  <div class="switch">
+                    <input type="checkbox" id="AN" class="notAll" />
+                    <label for="AN"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Applicant License:
+                  <div class="switch">
+                    <input type="checkbox" id="AL" class="notAll" />
+                    <label for="AL"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Bin:
+                  <div class="switch">
+                    <input type="checkbox" id="B" class="notAll" />
+                    <label for="B"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Block:
+                  <div class="switch">
+                    <input type="checkbox" id="BL" class="notAll" />
+                    <label for="BL"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Borough:
+                  <div class="switch">
+                    <input type="checkbox" id="BR" class="notAll" />
+                    <label for="BR"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  C B Number:
+                  <div class="switch">
+                    <input type="checkbox" id="CB" class="notAll" />
+                    <label for="CB"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Estimated Job Costs:
+                  <div class="switch">
+                    <input type="checkbox" id="EJC" class="notAll" />
+                    <label for="EJC"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Filing Reason:
+                  <div class="switch">
+                    <input type="checkbox" id="FR" class="notAll" />
+                    <label for="FR"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Filing Representative Business Name:
+                  <div class="switch">
+                    <input type="checkbox" id="FRBN" class="notAll" />
+                    <label for="FRBN"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Filing Representative Name:
+                  <div class="switch">
+                    <input type="checkbox" id="FRN" class="notAll" />
+                    <label for="FRN"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  House Number:
+                  <div class="switch">
+                    <input type="checkbox" id="HN" class="notAll" />
+                    <label for="HN"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Job Description:
+                  <div class="switch">
+                    <input type="checkbox" id="JD" class="notAll" />
+                    <label for="JD"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Job Filing Number:
+                  <div class="switch">
+                    <input type="checkbox" id="JFN" class="notAll" />
+                    <label for="JFN"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Lot:
+                  <div class="switch">
+                    <input type="checkbox" id="L" class="notAll" />
+                    <label for="L"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Owner Business Name:
+                  <div class="switch">
+                    <input type="checkbox" id="OBN" class="notAll" />
+                    <label for="OBN"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Owner Name:
+                  <div class="switch">
+                    <input type="checkbox" id="ON" class="notAll" />
+                    <label for="ON"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  License Type:
+                  <div class="switch">
+                    <input type="checkbox" id="LT" class="notAll" />
+                    <label for="LT"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Street Name:
+                  <div class="switch">
+                    <input type="checkbox" id="SN" class="notAll" />
+                    <label for="SN"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Work Location:
+                  <div class="switch">
+                    <input type="checkbox" id="WL" class="notAll" />
+                    <label for="WL"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Work Permit:
+                  <div class="switch">
+                    <input type="checkbox" id="WP" class="notAll" />
+                    <label for="WP"></label>
+                  </div>
+                </li>
+                <li class="dropdown-item">
+                  Work Type:
+                  <div class="switch">
+                    <input type="checkbox" id="WT" class="notAll" />
+                    <label for="WT"></label>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <div class="wrapper">
+    <table class="mainTable table table-light table-hover">
+      <thead class="thead" id="tableHead">
+        <tr>
+          <th>Applicant Business Address <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Applicant Business Name <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Applicant Name <button class="sort"><i class="bi bi-arrow-up"></i></button><button class="sort hide"><i
+                class="bi bi-arrow-up"></i></button></th>
+          <!-- The first is for the first name and the second is for the last name (Which is hidden). Yes, its jank, yes, it works -->
+          <th>Applicant License <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Approval Date <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Bin <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Block <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Borough <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>C B Number <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Estimated Job Costs <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Expiration Date <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Filing Reason <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Filing Representative Business Name <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Filing Representative Name <button class="sort"><i class="bi bi-arrow-up"></i></button><button
+              class="sort hide"><i class="bi bi-arrow-up"></i></button></th>
+          <!-- The first is for the first name and the second is for the last name (Which is hidden). Yes, its jank, yes, it works -->
+          <th>House Number <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Issuing Date <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Job Description <button class="sort d-none"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Job Filing Number <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>License Type <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Lot <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Owner Business Name <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Owner Name <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Street Name <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Work Location <button class="sort d-none"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Work Permit <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Work Type <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+    <br><br>
+    <a class="top" href="#top">
+      <i class="bi bi-arrow-up-circle d-none" id="topButton"></i>
+    </a>
+  </div>
+  <script src="navbar.js"></script>
+  <script src="darkmode.js"></script>
+  <script src="loadinginfo+search.js" type="module"></script>
+  <!-- Various Modals -->
+  <div class="modal fade" id="confirmReload" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="confirmReloadLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-center">
+          <h1 class="modal-title fs-5" id="confirmReloadLabel dateDisplaySet">This change requires a page reload, are
+            you sure?</h1>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Go Back</button>
+          <button type="button" class="btn btn-warning" id="reloadButton">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-xl modal-fullscreen-xl-down" id="moreInfo" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="moreInfoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="moreInfoLabel dateDisplaySet">More Information</h1>
+        </div>
+        <div class="modal-body container-fluid">
+          <div class="row">
+            <div class="col-xl-9">
+              <div id="map" class="d-flex justify-content-center align-items-center">
+                [PLACEHOLDER FOR MAP VISUALIZATION]
+              </div>
+            </div>
+            <div class="col-xl-3">
+              <div id="address">
+                Address: Error
+              </div>
+              <div id="export">
+                <button class="dropdown-toggle searchSet btn btn-secondary" data-bs-toggle="dropdown"
+                  aria-expanded="false" data-bs-auto-close="false">
+                  Export:
+                </button>
+                <ul class="dropdown-menu exportDropdown">
+                  <li class="dropdown-item exportDropdownItem">
+                    Google Sheets: (WIP)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!--<button type="button" class="btn btn-success" data-bs-dismiss="modal">Next</button>-->
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+          <!--<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Previous</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap Import -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
