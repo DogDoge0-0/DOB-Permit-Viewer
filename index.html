@@ -28,6 +28,9 @@
         <form class="d-flex mt-3 searchBar d-none d-md-block" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
         </form>
+        <h4 id="searchResultCount">
+          
+        </h4>
       </div>
       <button class="navbarToggle d-flex align-items-center" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -239,8 +242,7 @@
         <tr>
           <th>Applicant Business Address <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
           <th>Applicant Business Name <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
-          <th>Applicant Name <button class="sort"><i class="bi bi-arrow-up"></i></button><button class="sort hide"><i
-                class="bi bi-arrow-up"></i></button></th>
+          <th>Applicant Name <button class="sort"><i class="bi bi-arrow-up"></i></button><button class="sort hide"><i class="bi bi-arrow-up"></i></button></th>
           <!-- The first is for the first name and the second is for the last name (Which is hidden). Yes, its jank, yes, it works -->
           <th>Applicant License <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
           <th>Approval Date <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
@@ -252,8 +254,7 @@
           <th>Expiration Date <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
           <th>Filing Reason <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
           <th>Filing Representative Business Name <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
-          <th>Filing Representative Name <button class="sort"><i class="bi bi-arrow-up"></i></button><button
-              class="sort hide"><i class="bi bi-arrow-up"></i></button></th>
+          <th>Filing Representative Name <button class="sort"><i class="bi bi-arrow-up"></i></button><button class="sort hide"><i class="bi bi-arrow-up"></i></button></th>
           <!-- The first is for the first name and the second is for the last name (Which is hidden). Yes, its jank, yes, it works -->
           <th>House Number <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
           <th>Issuing Date <button class="sort"><i class="bi bi-arrow-up"></i></button></th>
@@ -315,9 +316,12 @@
               <div id="export">
                 <button class="dropdown-toggle searchSet btn btn-secondary" data-bs-toggle="dropdown"
                   aria-expanded="false" data-bs-auto-close="false">
-                  Export:
+                  Export Row:
                 </button>
                 <ul class="dropdown-menu exportDropdown">
+                  <li class="dropdown-item exportDropdownItem">
+                    Google Sheets: (WIP)
+                  </li>
                   <li class="dropdown-item exportDropdownItem">
                     Google Sheets: (WIP)
                   </li>
