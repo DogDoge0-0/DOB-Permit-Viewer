@@ -13,3 +13,4 @@ Here I use `https://data.cityofnewyork.us/resource/rbx6-tga4`'s data to construc
 - Address Visualization (Work In Progress)
 - Exporting to Google Sheets (Work In Progress)
 - Exporting to Microsoft Excel (Work In Progress)
+- Sort data by ascending or descending (Functional)
