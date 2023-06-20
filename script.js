@@ -858,7 +858,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Reset the button appearance
     button.classList.remove('ascending', 'descending');
-    button.setAttribute('title', '');
+    button.setAttribute('title', 'Sort by: None');
 
     if (sortButtonsState[index] == 1) {
       // First active state (ascending)
@@ -873,7 +873,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       // Inactive state (fallback)
       button.classList.remove('ascending', 'descending');
-      button.setAttribute('title', '');
+      button.setAttribute('title', 'Sort by: None');
     }
   }
 
