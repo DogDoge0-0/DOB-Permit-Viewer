@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentPage++;
     const offset = currentPage * pageSize;
     if (searching === false && totalResults > offset) {
+      searchResultCount.innerHTML = '';
       loading = true;
       let sortParam = '';
       if (currentSortColumn) {
@@ -307,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         filterQuery = filterQuery.slice(0, -4); // Remove the trailing " OR " from the last filter
-        url = `${baseURL}/resource/${dataID}.json?$where=${filterQuery}${sortParam}&$limit=${20}&$offset=${currentPage * pageSize}`;
+        url = `${baseURL}/resource/${dataID}.json?$where=${filterQuery}${sortParam}&$limit=${20};
       }
       console.log(filterQuery);
       console.log(url);
@@ -338,7 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
             displayNoResult = false;
             console.log(displayNoResult);
           }
-          fetch(url)
+          fetch(`${baseURL}/resource/${dataID}.json?$where=${filterQuery}${sortParam};)
             .then(response => response.json())
             .then(data => {
               totalResults = data.length;
@@ -372,6 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
       searching = true;
     }
     if (searchInput == '') {
+      searchResultCount.innerHTML = '';
       loadData();
       noInfoFoundCheck = false
       searching = false;
