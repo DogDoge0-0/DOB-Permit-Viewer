@@ -1026,7 +1026,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Sheets Export
-  exportExcel.addEventListener('click', () => {
+  exportSheets.addEventListener('click', () => {
     pick10.addEventListener('click', () => {
       console.log('yep, it leaks sheets');
     });
