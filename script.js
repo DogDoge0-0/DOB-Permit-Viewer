@@ -1013,4 +1013,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 */
+  // Export
+  let exportExcel = document.querySelector('#exportExcel');
+  let exportSheets = document.querySelector('#exportSheets');
+  let pick10 = document.querySelector('#pick10');
+
+  // Excel Export
+  exportExcel.addEventListener('click', () => {
+    pick10.addEventListener('click', () => {
+      console.log('yep, it leaks excell');
+    });
+  });
+
+  // Sheets Export
+  exportExcel.addEventListener('click', () => {
+    pick10.addEventListener('click', () => {
+      console.log('yep, it leaks sheets');
+    });
+  });
 });
