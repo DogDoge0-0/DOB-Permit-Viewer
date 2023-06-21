@@ -31,15 +31,7 @@
         <h4 id="searchResultCount" class="d-none d-md-block"></h4>
       </div>
       <div class="d-flex justify-content-end">
-      <button class="btn btn-outline-success dropdown-toggle" id="export" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="false">Export Data</button>
-        <ul class="dropdown-menu">
-          <li class="dropdown-item exportDropdown">
-            <button class="btn btn-secondary">Google Sheets</button>
-          </li>
-          <li class="dropdown-item exportDropdown">
-            <button class="btn btn-secondary">Microsoft Excel</button>
-          </li>
-        </ul>
+      <button class="btn btn-outline-success" id="export" data-bs-toggle="modal" data-bs-target="#exportModal">Export Data</button>
       <button class="navbarToggle d-flex align-items-center" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <img class="gear" src="gear.svg" role="button" title="Options">
@@ -312,7 +304,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="moreInfoLabel dateDisplaySet">More Information</h1>
+          <h1 class="modal-title fs-5" id="moreInfoLabel">More Information</h1>
         </div>
         <div class="modal-body container-fluid">
           <div class="row">
@@ -328,6 +320,30 @@
             </div>
           </div>
         </div>
+        <div class="modal-footer">
+          <!--<button type="button" class="btn btn-success" data-bs-dismiss="modal">Next</button>-->
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+          <!--<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Previous</button>-->
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exportModal" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="exportModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exportModalLabel">Export Settings</h1>
+        </div>
+        <div class="modal-body container-fluid">
+          <h4>Export to:</h4>
+          <button class="btn btn-secondary">Google Sheets</button>
+          <button class="btn btn-secondary">Microsoft Excel</button>
+          <hr>
+          <p>Include table header?</p>
+          <label class="checkBox">
+            <input type="checkbox" class="checkBoxInner" id="showPercent">
+            <span class="checkBoxCheck"></span>
+    </    </label>
         <div class="modal-footer">
           <!--<button type="button" class="btn btn-success" data-bs-dismiss="modal">Next</button>-->
           <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
