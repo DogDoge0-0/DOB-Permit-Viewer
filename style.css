@@ -340,7 +340,7 @@ html {
   transform: rotate(45deg);
 }
 
-#includeHeader {
+.includeHeader {
   position: relative;
   top: -56px;
   left: 160px;
