@@ -284,6 +284,62 @@ html {
   top: -35px;
 }
 
+/* Checkbox */
+.checkBox {
+  position: relative;
+  cursor: pointer;
+  font-size: 15pt;
+  top: -10px;
+  padding-right: 19px;
+}
+
+.checkBox .checkBoxInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkBox .checkBoxCheck {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+}
+
+.checkBox:hover .checkBoxInner ~ .checkBoxCheck {
+  border-color: #666;
+}
+
+.checkBox .checkBoxInner:checked ~ .checkBoxCheck {
+  background-color: #6fbc43;
+  border-color: #6fbc43;
+}
+
+.checkBox .checkBoxCheck:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkBox .checkBoxInner:checked ~ .checkBoxCheck:after {
+  display: block;
+}
+
+.checkBox .checkBoxCheck:after {
+  left: 6.75px;
+  top: 3.2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
 /* Table */
 
 .mainTable {
