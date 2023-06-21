@@ -29,16 +29,16 @@
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
         </form>
         <h4 id="searchResultCount" class="d-none d-md-block"></h4>
-        <button class="btn btn-success dropdown-toggle" id="export" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="false">Export Data</button>
+      </div>
+      <button class="btn btn-success dropdown-toggle" id="export" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="false">Export Data</button>
         <ul class="dropdown-menu">
-          <li class="dropdown-item">
+          <li class="dropdown-item exportDropdown">
             <button class="btn btn-secondary">Google Sheets</button>
           </li>
-          <li class="dropdown-item">
+          <li class="dropdown-item exportDropdown">
             <button class="btn btn-secondary">Microsoft Excel</button>
           </li>
         </ul>
-      </div>
       <button class="navbarToggle d-flex align-items-center" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <img class="gear" src="gear.svg" role="button" title="options">
