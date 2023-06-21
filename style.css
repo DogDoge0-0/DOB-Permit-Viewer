@@ -70,8 +70,6 @@ html {
   font-size: 24pt;
   width: 46px;
   height: 36px;
-  position: relative;
-  top: -8px;
 }
 
 .navbarToggle:hover .gear {
