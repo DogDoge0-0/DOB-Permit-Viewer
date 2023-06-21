@@ -29,10 +29,19 @@
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
         </form>
         <h4 id="searchResultCount" class="d-none d-md-block"></h4>
+        <button class="btn btn-success dropdown-toggle" id="export" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="false">Export Data</button>
+        <ul class="dropdown-menu">
+          <li class="dropdown-item">
+            <button class="btn btn-secondary">Google Sheets</button>
+          </li>
+          <li class="dropdown-item">
+            <button class="btn btn-secondary">Microsoft Excel</button>
+          </li>
+        </ul>
       </div>
       <button class="navbarToggle d-flex align-items-center" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-        <img class="gear" src="gear.svg" role="button" alt="options">
+        <img class="gear" src="gear.svg" role="button" title="options">
       </button>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
@@ -274,7 +283,6 @@
       </thead>
       <tbody id="tableBody"></tbody>
     </table>
-    <br><br>
     <a class="top" href="#top">
       <i class="bi bi-arrow-up-circle d-none" id="topButton"></i>
     </a>
@@ -314,20 +322,6 @@
             <div class="col-xl-3">
               <div id="address">
                 Address: Error
-              </div>
-              <div id="export">
-                <button class="dropdown-toggle searchSet btn btn-secondary" data-bs-toggle="dropdown"
-                  aria-expanded="false" data-bs-auto-close="false">
-                  Export Row:
-                </button>
-                <ul class="dropdown-menu exportDropdown">
-                  <li class="dropdown-item exportDropdownItem">
-                    Google Sheets: (WIP)
-                  </li>
-                  <li class="dropdown-item exportDropdownItem">
-                    Google Sheets: (WIP)
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
