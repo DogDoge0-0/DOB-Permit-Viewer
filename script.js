@@ -1035,3 +1035,4 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     pick10.addEventListener('click', clickHandlerSheets);
   });
+});
