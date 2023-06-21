@@ -1020,15 +1020,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Excel Export
   exportExcel.addEventListener('click', () => {
-    pick10.addEventListener('click', () => {
+    const clickHandlerExcel = () => {
       console.log('yep, it leaks excell');
-    });
+      pick10.removeEventListener('click', clickHandlerExcel);
+    };
+    pick10.addEventListener('click', clickHandlerExcel);
   });
 
   // Sheets Export
   exportSheets.addEventListener('click', () => {
-    pick10.addEventListener('click', () => {
+    const clickHandlerSheets = () => {
       console.log('yep, it leaks sheets');
-    });
+      pick10.removeEventListener('click', clickHandlerSheets);
+    };
+    pick10.addEventListener('click', clickHandlerSheets);
   });
-});
