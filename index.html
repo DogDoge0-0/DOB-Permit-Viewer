@@ -293,7 +293,7 @@
             you sure?</h1>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Go Back</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
           <button type="button" class="btn btn-warning" id="reloadButton">Understood</button>
         </div>
       </div>
@@ -337,16 +337,33 @@
         </div>
         <div class="modal-body container-fluid">
           <h4>Export to:</h4>
-          <button class="btn btn-secondary">Google Sheets</button>
-          <button class="btn btn-secondary">Microsoft Excel</button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Google Sheets</button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Microsoft Excel</button>
           <hr>
           <p>Include table header?</p>
           <label class="checkBox includeHeader">
             <input type="checkbox" class="checkBoxInner" id="includeHeader">
             <span class="checkBoxCheck"></span>
           </label>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exportModal2" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="exportModal2Label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exportModal2Label">Choose up to 10 rows to export.</h1>
+        </div>
+        <div class="modal-body container-fluid">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="pick10">Choose</button>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancel</button>
+          </div>
         </div>
       </div>
     </div>
