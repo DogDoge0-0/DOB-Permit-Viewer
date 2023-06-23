@@ -336,9 +336,8 @@
           <h1 class="modal-title fs-5" id="exportModalLabel">Export Settings</h1>
         </div>
         <div class="modal-body container-fluid">
-          <h4>Export to:</h4>
-          <button class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exportModal2" id="exportSheets">Google Sheets</button>
-          <button class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exportModal2" id="exportExcel">Microsoft Excel</button>
+          <h4>Export as:</h4>
+          <button class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exportModal2" id="exportCSV">.csv</button>
           <hr>
           <p>Include table header?</p>
           <label class="checkBox includeHeader">
@@ -357,11 +356,11 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exportModal2Label">Choose up to 10 rows to export.</h1>
+          <h1 class="modal-title fs-5" id="exportModal2Label">Click on the rows you wish to export.</h1>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="pick10">Choose</button>
-          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="doneExport">Done</button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="cancelExport">Cancel</button>
         </div>
       </div>
     </div>
