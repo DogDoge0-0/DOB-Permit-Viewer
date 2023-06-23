@@ -925,7 +925,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   // BBL to Address conversion
   function fetchAddress(block, borough, lot) {
-    const url = `https://geoservice.planning.nyc.gov/geoservice/geoservice.svc/Function_BBL?Borough=${borough}&Block=${block}&Lot=${lot}&key=ABDHG7KaPdNahh`;
+    const url = `/api/data?borough=${borough}&block=${block}&lot=${lot}`;
 
     fetch(url, { mode: 'no-cors' }) // do not use CORS for this request as it's not supported by the DOB geoservice API
       .then(response => response.json())
