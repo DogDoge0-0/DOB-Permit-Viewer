@@ -1,7 +1,0 @@
-name: DOB Permit Viewer
-on:
-  push:
-    branches:
-      - main
-env:
-  NYC_GEOSERVICE_API_KEY: ${{ secrets.NYC_GEOSERVICE_API_KEY }}
