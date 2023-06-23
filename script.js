@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let columnValue = 'No Information Found';
         row.setAttribute('data-bs-toggle', 'modal');
         row.setAttribute('data-bs-target', '#moreInfo');
-        row.setAttribute('role', 'button');
+        row.setAttribute('class', 'tableRow');
         if (column === 'AN' || column === 'FRN') {
           const firstName = entry[columnKeys[0]];
           const lastName = entry[columnKeys[1]];
