@@ -1014,7 +1014,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 */
   // Export
-  let exportExcel = document.querySelector('#exportExcel');
+  /*let exportExcel = document.querySelector('#exportExcel');
   let exportSheets = document.querySelector('#exportSheets');
   let pick10 = document.querySelector('#pick10');
 
@@ -1034,5 +1034,5 @@ document.addEventListener('DOMContentLoaded', () => {
       pick10.removeEventListener('click', clickHandlerSheets);
     };
     pick10.addEventListener('click', clickHandlerSheets);
-  });
+  });*/
 });
