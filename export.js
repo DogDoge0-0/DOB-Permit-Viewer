@@ -5,13 +5,6 @@ exportBtn.addEventListener('click', () => {
   let exportRows = document.querySelectorAll('.tableRow'); // Data to go
   let includeHeader = document.querySelector('#includeHeader'); // Include header or not
   let tableHeadExport = document.querySelector('#tableHeadExport'); // Header Row
-
-  // Change the second modal
-  $(modal2).modal({
-    backdrop: 'static'
-  });
-  $(modal2).draggable();
-
   
   // Function to convert data to CSV format
   function convertToCSV(data) {
