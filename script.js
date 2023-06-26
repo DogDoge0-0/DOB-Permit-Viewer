@@ -1,6 +1,7 @@
 // Initialization
 let exportButton = document.querySelector('#export');
-let selectedFilter, url, loading, arrowClass, hoverArrowClass, noInfoFoundCheck, totalResults;
+let selectedFilter, url, arrowClass, hoverArrowClass, noInfoFoundCheck, totalResults;
+let loading = true;
 let dateChangeComplete = false;
 let searching = false;
 let html = document.querySelector('html');
