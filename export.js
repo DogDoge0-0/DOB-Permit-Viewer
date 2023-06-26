@@ -15,14 +15,7 @@ exportBtn.addEventListener('click', () => {
   });
   $(modal2).draggable();
 
-  let clickedRows = []; // Array to store clicked rows
-
-  exportRows.forEach(row => {
-    row.addEventListener('click', () => {
-      row.setAttribute('data-bs-toggle', '');
-      row.setAttribute('data-bs-target', '');
-    });
-  });
+  
   // Function to convert data to CSV format
   function convertToCSV(data) {
     const header = includeHeader.checked ? tableHeadExport.innerText : '';
@@ -43,25 +36,14 @@ exportBtn.addEventListener('click', () => {
     document.body.removeChild(link);
   }
 
-  // Handle row click event
-  exportRows.forEach(row => {
-    row.addEventListener('click', () => {
-      clickedRows.push(row); // Store clicked row in the array
-    });
-  });
-
   // Handle export button click
   done.addEventListener('click', () => {
     // Trigger CSV file download with clicked rows
-    downloadCSV(clickedRows);
+    downloadCSV(exportRows);
   });
 
   // Handle cancel button click
   cancel.addEventListener('click', () => {
-    clickedRows = []; // Reset clicked rows array
-    exportRows.forEach(row => {
-      row.setAttribute('data-bs-toggle', 'modal');
-      row.setAttribute('data-bs-target', '#moreInfo');
-    });
+    // Blank for now
   });
 });
