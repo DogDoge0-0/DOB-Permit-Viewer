@@ -368,14 +368,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  loading.addEventListener('change', () => {
+  setInterval(() => {
     if (loading || noInfoFoundCheck) {
       exportButton.disabled = true;
     } 
     else {
       exportButton.disabled = false;
     }
-  });
+  }, 100);
 
   
   // The detector that starts it all
