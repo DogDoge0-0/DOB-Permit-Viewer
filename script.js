@@ -1,4 +1,5 @@
 // Initialization
+const exportBtn = document.querySelector('#export');
 let selectedFilter, url, loading, arrowClass, hoverArrowClass, noInfoFoundCheck, totalResults;
 let dateChangeComplete = false;
 let searching = false;
@@ -147,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   function displayData(data) {
+    exportBtn.disabled = false;
     for (const entry of data) {
       const row = document.createElement('tr');
       for (const column of Object.keys(filterColumns)) {
@@ -263,6 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function performSearch() {
+    exportBtn.disabled = false;
     const query = searchInput.value.toLowerCase().trim();
     table.innerHTML = '';
     currentPage = 0;
@@ -363,6 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sortButtons.forEach((button) => {
         button.classList.add('d-none');
       });
+      exportBtn.disabled = true;
     }
   }
 
