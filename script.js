@@ -1,5 +1,5 @@
 // Initialization
-let exportBtn = document.querySelector('#export');
+let exportBTN = document.querySelector('#export');
 let selectedFilter, url, loading, arrowClass, hoverArrowClass, noInfoFoundCheck, totalResults;
 let dateChangeComplete = false;
 let searching = false;
@@ -369,10 +369,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loading.addEventListener('change', () => {
     if (loading || noInfoFoundCheck) {
-      exportBtn.disabled = true;
+      exportBTN.disabled = true;
     } 
     else {
-      exportBtn.disabled = false;
+      exportBTN.disabled = false;
     }
   });
 
