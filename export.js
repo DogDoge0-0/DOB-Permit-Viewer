@@ -2,9 +2,6 @@ let exportBtn = document.querySelector('#export');
 exportBtn.addEventListener('click', () => {
   // Initialization
   let CSV = document.querySelector('#exportCSV');
-  let done = document.querySelector('#exportDone');
-  let cancel = document.querySelector('#exportCancel');
-  let modal2 = document.querySelector('#exportModal2');
   let exportRows = document.querySelectorAll('.tableRow'); // Data to go
   let includeHeader = document.querySelector('#includeHeader'); // Include header or not
   let tableHeadExport = document.querySelector('#tableHeadExport'); // Header Row
@@ -37,13 +34,8 @@ exportBtn.addEventListener('click', () => {
   }
 
   // Handle export button click
-  done.addEventListener('click', () => {
+  CSV.addEventListener('click', () => {
     // Trigger CSV file download with clicked rows
     downloadCSV(exportRows);
-  });
-
-  // Handle cancel button click
-  cancel.addEventListener('click', () => {
-    // Blank for now
   });
 });
