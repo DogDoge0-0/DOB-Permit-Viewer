@@ -220,7 +220,7 @@ html {
   left: 2px;
   width: 10px;
   height: 10px;
-  background-color: #fff;
+  background-color: #666667;
   border-radius: 50%;
   transition: transform 0.3s;
 }
@@ -265,7 +265,7 @@ html {
   left: 2px;
   width: 24px;
   height: 24px;
-  background-color: #fff;
+  background-color: #666667;
   border-radius: 50%;
   transition: transform 0.3s;
 }
