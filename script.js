@@ -942,6 +942,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(url, { mode: 'no-cors' }) // do not use CORS for this request as it's not supported by the DOB geoservice API
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         const addressRangeList = data.display.AddressRangeList;
         if (addressRangeList.length > 0) {
           const streetName = addressRangeList[0].street_name.trim();
