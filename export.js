@@ -2,10 +2,10 @@ let exportBtn = document.querySelector('#export');
 exportBtn.addEventListener('click', () => {
   // Initialization
   let CSV = document.querySelector('#exportCSV');
-  let exportRows = document.querySelectorAll('.tableRow'); // Data to go
+  let exportRows = Array.from(document.querySelectorAll('.tableRow')); // Convert NodeList to array
   let includeHeader = document.querySelector('#includeHeader'); // Include header or not
   let tableHeadExport = document.querySelector('#tableHeadExport'); // Header Row
-  
+
   // Function to convert data to CSV format
   function convertToCSV(data) {
     const header = includeHeader.checked ? tableHeadExport.innerText : '';
