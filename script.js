@@ -1,5 +1,5 @@
 // Initialization
-const exportBtn = document.querySelector('#export');
+let exportBtn = document.querySelector('#export');
 let selectedFilter, url, loading, arrowClass, hoverArrowClass, noInfoFoundCheck, totalResults;
 let dateChangeComplete = false;
 let searching = false;
