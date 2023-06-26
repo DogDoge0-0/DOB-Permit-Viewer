@@ -7,7 +7,10 @@ exportBtn.addEventListener('click', () => {
 
   function convertToCSV(data) {
     const header = includeHeader.checked ? tableHeadExport.innerText : '';
-    const rows = data.map(row => Object.values(row).join(","));
+    const rows = data.map(row => {
+      const rowData = Array.from(row.querySelectorAll('td')).map(td => td.innerText);
+      return rowData.join(",");
+    });
     return `${header}\n${rows.join("\n")}`;
   }
 
@@ -19,7 +22,7 @@ exportBtn.addEventListener('click', () => {
     link.href = csvURL;
     link.setAttribute("download", "export_data.csv");
     link.click();
-    link.remove(); // Use 'remove' instead of 'removeChild'
+    link.remove();
   }
 
   CSV.addEventListener('click', () => {
