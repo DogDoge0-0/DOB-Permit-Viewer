@@ -87,7 +87,7 @@ const sortColumns = [
 let selectedFilters = [];
 let data = []; // Declare the data variable as an empty array
 
-// Load Info + Search Stuff 
+// Load Info + Search Stuff
 document.addEventListener('DOMContentLoaded', () => {
 
   function loadNextPage() {
@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
               totalResults = data.length;
               console.log(totalResults);
-            	searchResultCount.innerHTML = totalResults + ' results found.';
+              searchResultCount.innerHTML = totalResults + ' results found.';
             })
         });
     }
@@ -924,11 +924,11 @@ document.addEventListener('DOMContentLoaded', () => {
       topButton.setAttribute('class', 'bi ' + arrowClass);
     }
   });
-  // BBL to Address conversion 
+  // BBL to Address conversion
   function fetchAddress(block, borough, lot) {
-    const url = `https://geoservice.planning.nyc.gov/geoservice/geoservice.svc/Function_BBL?Borough=${borough}&Block=${block}&Lot=${lot}&key=ABDHG7KaPdNahh`;
-
-    fetch(url)
+    const url = `https://geoservice.planning.nyc.gov/geoservice/geoservice.svc/Function_BBL?Borough=${borough}&Block=${block}&Lot=${lot}&key=ABDHG7KaPdSgVkYp`;
+    console.log(url);
+    fetch(url, { mode: 'no-cors' }) // do not use CORS for this request as it's not supported by the DOB geoservice API
       .then(response => response.json())
       .then(data => {
         const addressRangeList = data.display.AddressRangeList;
@@ -967,14 +967,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     document.body.appendChild(script);
   }
- 
+
   // Authenticate the user
   function authenticateUser(callback) {
     gapi.auth2.getAuthInstance().signIn().then(function() {
       callback();
     });
   }
- 
+
   // Open Google Picker to select a sheet
   function openPicker(callback) {
     var picker = new google.picker.PickerBuilder()
@@ -986,7 +986,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .build();
     picker.setVisible(true);
   }
- 
+
   // Export data to the selected sheet
   function exportToGoogleSheets(data, spreadsheetId) {
     gapi.client.sheets.spreadsheets.values.append({
@@ -1002,7 +1002,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.alert('Error exporting data to Google Sheets.');
     });
   }
- 
+
   // Call the functions to load APIs, authenticate user, open picker, and export data
   loadGoogleAPIs(function() {
     authenticateUser(function() {
@@ -1015,7 +1015,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 */
   // Export
-  let exportExcel = document.querySelector('#exportExcel');
+  /*let exportExcel = document.querySelector('#exportExcel');
   let exportSheets = document.querySelector('#exportSheets');
   let pick10 = document.querySelector('#pick10');
 
@@ -1035,5 +1035,5 @@ document.addEventListener('DOMContentLoaded', () => {
       pick10.removeEventListener('click', clickHandlerSheets);
     };
     pick10.addEventListener('click', clickHandlerSheets);
-  });
+  });*/
 });
