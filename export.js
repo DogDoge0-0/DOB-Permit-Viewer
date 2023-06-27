@@ -9,7 +9,7 @@ exportBtn.addEventListener('click', () => {
     const header = includeHeader.checked ? tableHeadExport.innerText : '';
     const rows = data.map(row => {
       const rowData = Array.from(row.querySelectorAll('td')).map(td => td.innerText);
-      return rowData.join(",");
+      return rowData.join(", ");
     });
     return `${header}\n${rows.join("\n")}`;
   }
