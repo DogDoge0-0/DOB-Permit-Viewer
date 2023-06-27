@@ -6,13 +6,14 @@ exportBtn.addEventListener('click', () => {
   const tableHeadExport = document.querySelector('#tableHeadExport');
 
   function convertToCSV(data) {
-    const header = includeHeader.checked ? tableHeadExport.innerText : '';
+    const header = includeHeader.checked ? Array.from(tableHeadExport.children).map(th => th.innerText).join(",") : '';
     const rows = data.map(row => {
       const rowData = Array.from(row.querySelectorAll('td')).map(td => td.innerText);
-      return rowData.join(", ");
+      return rowData.join(",");
     });
     return `${header}\n${rows.join("\n")}`;
   }
+
 
   function downloadCSV(data) {
     const csv = convertToCSV(data);
