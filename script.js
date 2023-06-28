@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sortParam = `&$order=${currentSortColumn}%20${currentSortOrder}`;
     }
     console.log('nah');
-    if (query !== '') {
+    if (searchInput.value.toLowerCase().trim() !== '') {
       console.log('is check');
       const encodedQuery = encodeURIComponent(query.replace(/ /g, '%20'));
       let filterQuery = '';
