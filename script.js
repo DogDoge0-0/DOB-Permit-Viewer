@@ -938,7 +938,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   // BBL to Address conversion
   function fetchAddress(block, borough, lot) {
-  const url = `https://geoservice.planning.nyc.gov/geoservice/geoservice.svc/Function_BBL?Borough=${borough}&Block=${block}&Lot=${lot}&key=Derp`;
+  const url = `https://geoservice.planning.nyc.gov/geoservice/geoservice.svc/Function_BBL?Borough=${borough}&Block=${block}&Lot=${lot}&key=ABDHG7KaPdSgVkYp`;
   console.log(url);
   
   fetch(url, { mode: 'no-cors' }) // Set mode to 'no-cors'
