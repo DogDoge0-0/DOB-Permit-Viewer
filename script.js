@@ -939,7 +939,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // BBL to Address conversion
   function fetchAddress(block, borough, lot) {
     const url = `https://geoservice.planning.nyc.gov/geoservice/geoservice.svc/Function_BBL?Borough=${borough}&Block=${block}&Lot=${lot}&key=ABDHG7KaPdSgVkYp`;
-    console.log(url);
+    console.log(url, { mode: 'no-cors' });
     fetch(url, { mode: 'no-cors' }) // do not use CORS for this request as it's not supported by the DOB geoservice API
       .then(response => response.json())
       .then(data => {
@@ -951,8 +951,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const lowAddressNumber = addressRangeList[0].low_address_number.trim();
           const addressDisplay = `${lowAddressNumber} - ${highAddressNumber} ${streetName}`;
           console.log(addressDisplay);
-          // Handle the address display value as needed
-        } else {
+        } 
+        else {
           console.log('No address information found');
         }
       })
