@@ -938,26 +938,30 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   // BBL to Address conversion
   function fetchAddress(block, borough, lot) {
-    const url = `https://geoservice.planning.nyc.gov/geoservice/geoservice.svc/Function_BBL?Borough=${borough}&Block=${block}&Lot=${lot}&key=ABDHG7KaPdSgVkYp`;
-    console.log(url, { mode: 'no-cors' });
-    fetch(url, { mode: 'no-cors' }) // do not use CORS for this request as it's not supported by the DOB geoservice API
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        const addressRangeList = data.display.AddressRangeList;
-        if (addressRangeList.length > 0) {
-          const streetName = addressRangeList[0].street_name.trim();
-          const highAddressNumber = addressRangeList[0].high_address_number.trim();
-          const lowAddressNumber = addressRangeList[0].low_address_number.trim();
-          const addressDisplay = `${lowAddressNumber} - ${highAddressNumber} ${streetName}`;
-          console.log(addressDisplay);
-        } 
-        else {
-          console.log('No address information found');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+  const url = `https://geoservice.planning.nyc.gov/geoservice/geoservice.svc/Function_BBL?Borough=${borough}&Block=${block}&Lot=${lot}&key=Derp`;
+  console.log(url);
+  
+  fetch(url, { mode: 'no-cors' }) // Set mode to 'no-cors'
+    .then(response => {
+      console.log('CORS mode:', response.type); // Log the CORS mode
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      const addressRangeList = data.display.AddressRangeList;
+      if (addressRangeList.length > 0) {
+        const streetName = addressRangeList[0].street_name.trim();
+        const highAddressNumber = addressRangeList[0].high_address_number.trim();
+        const lowAddressNumber = addressRangeList[0].low_address_number.trim();
+        const addressDisplay = `${lowAddressNumber} - ${highAddressNumber} ${streetName}`;
+        console.log(addressDisplay);
+        // Handle the address display value as needed
+      } else {
+        console.log('No address information found');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
   }
 });
