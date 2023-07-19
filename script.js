@@ -311,11 +311,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         filterQuery = filterQuery.slice(0, -4); // Remove the trailing " OR " from the last filter
-        url = `${baseURL}/resource/${dataID}.json?$where=${filterQuery}${sortParam}`;
+        url = `${baseURL}/resource/${dataID}.json?$where=${filterQuery}${sortParam}&$limit=${20}`;
       }
       console.log(filterQuery);
-      console.log(url  + '&$limit=${20}`);
-      fetch(url + '&$limit=${20}`)
+      console.log(url);
+      fetch(url)
         .then(response => response.json())
         .then(data => {
           data.sort((a, b) => {
@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
             displayNoResult = false;
             console.log(displayNoResult);
           }
-          fetch(`${baseURL}/resource/${dataID}.json?$where=${url}`)
+          fetch(`${baseURL}/resource/${dataID}.json?$where=${filterQuery}`)
             .then(response => response.json())
             .then(data => {
               totalResults = data.length;
