@@ -1,6 +1,6 @@
 // Initialization
 setInterval(() => {
-  if (screen.width < 750) {
+  if (screen.width < 790) {
     $("#mobileBlock").modal('show');
   }
   else {
