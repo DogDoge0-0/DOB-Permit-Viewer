@@ -1,6 +1,8 @@
 // Initialization
 $(document).ready(function(){
-  $("#mobileBlock").modal('show');
+  if (screen.width < 400) {
+    $("#mobileBlock").modal('show');
+  }
 });
 let exportButton = document.querySelector('#export');
 let selectedFilter, url, arrowClass, hoverArrowClass, noInfoFoundCheck, totalResults;
