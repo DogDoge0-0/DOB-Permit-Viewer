@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
             displayNoResult = false;
             console.log(displayNoResult);
           }
-          fetch(`${baseURL}/resource/${dataID}.json?$where=${url}`)
+          fetch(`${baseURL}/resource/${dataID}.json?$where=${filterQuery}`)
             .then(response => response.json())
             .then(data => {
               totalResults = data.length;
