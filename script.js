@@ -1,4 +1,7 @@
 // Initialization
+$(document).ready(function(){
+  $("#mobileBlock").modal('show');
+});
 let exportButton = document.querySelector('#export');
 let selectedFilter, url, arrowClass, hoverArrowClass, noInfoFoundCheck, totalResults;
 let loading = true;
